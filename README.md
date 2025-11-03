@@ -1,6 +1,5 @@
 # 🚀 Projeto Integrado - Modelagem de Dados (ADS 4º Trimestre)
 
-![Capa](https://unsplash.com/pt-br/fotografias/laptop-computer-on-glass-top-table-hpjSkU2UYSU)
 Este repositório contém o desenvolvimento do Projeto Integrado (PI) do 4º Trimestre Letivo de 2025 , do curso de **Análise e Desenvolvimento de Sistemas** da **UNIFEOB**.
 
 [cite_start]O objetivo principal do projeto é propor e desenvolver uma solução de **Business Intelligence (BI)** para uma empresa real , aplicando na prática os conceitos de modelagem de dados e visualização de indicadores para apoiar a tomada de decisão[cite: 95].
