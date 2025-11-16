@@ -1,5 +1,5 @@
 -- 1. Seleciona o banco de dados que vamos usar
-USE autopeças_db;
+USE autopecas_db;
 
 -- Inserindo Clientes
 -- (O id_Cliente é AUTO_INCREMENT)
