@@ -6,12 +6,12 @@
 
 -- 1. Criando o banco de dados
 -- O "IF NOT EXISTS" é uma segurança para não dar erro caso a database ja exista
-CREATE DATABASE IF NOT EXISTS autopeças_db
+CREATE DATABASE IF NOT EXISTS autopecas_db
 DEFAULT CHARACTER SET utf8mb4
 DEFAULT COLLATE utf8mb4_0900_ai_ci; -- garante que acentos e 'ç' funcionem
 
 -- 2. Seleciona o banco para usar
-USE autopeças_db;
+USE autopecas_db;
 
 -----------------------------------
 -- tab_CLIENTE
@@ -68,7 +68,7 @@ CREATE TABLE PRODUTO (
 
 
 -----------------------------------
--- tab_VENDA - Tabela de evento, armazena o envento da venda realizada
+-- tab_VENDA - Tabela de evento, armazena o evento da venda realizada
 -----------------------------------
 CREATE TABLE VENDA (
     id_Venda INT AUTO_INCREMENT PRIMARY KEY,
