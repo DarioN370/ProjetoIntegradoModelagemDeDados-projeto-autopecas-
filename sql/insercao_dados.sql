@@ -53,12 +53,20 @@ INSERT INTO PRODUTO_FORNECEDOR (id_produto, id_Fornecedor, custo_compra) VALUES
 -- -----------------------------------------------------
 -- PASSO 3: Inserir a VENDA (dependente de Cliente e Funcionario)
 -- -----------------------------------------------------
--- Criei duas vendas de exemplo
+-- Criei 6 vendas de exemplo para popular o banco
 INSERT INTO VENDA (data_venda, valor_total, forma_pagamento, id_Cliente, id_Funcionario) VALUES
 -- Venda 1: Gabriel Toledo (ID 1) foi atendido por Stephen Curry (ID 1)
 ('2025-11-14 10:30:00', 190.50, 'Pix', 1, 1), 
 -- Venda 2: Kaique Cerato (ID 2) foi atendido por Lando Norris (ID 3)
-('2025-11-15 11:15:00', 645.00, 'Crédito', 2, 3);
+('2025-11-15 11:15:00', 645.00, 'Crédito', 2, 3),
+-- Venda 3: Danil (ID 3) comprando manutenção básica com o Stephen (ID 1)
+('2025-11-16 09:00:00', 385.00, 'Débito', 3, 1),
+-- Venda 4: Gabriel (ID 1) trocando amortecedores com o Lando (ID 3)
+('2025-11-16 14:20:00', 560.00, 'Dinheiro', 1, 3),
+-- Venda 5: Kaique (ID 2) comprando uma peça rápida com o Gerente Max (ID 2)
+('2025-11-17 08:15:00', 145.50, 'Pix', 2, 2),
+-- Venda 6: Danil (ID 3) retornando para comprar mais itens com Lando (ID 3)
+('2025-11-18 16:45:00', 381.00, 'Crédito', 3, 3);
 
 -- -----------------------------------------------------
 -- PASSO 4: Inserir os ITENS DA VENDA (que depende de Venda e Produto)
@@ -73,3 +81,21 @@ INSERT INTO ITEM_VENDA (id_Venda, id_produto, quantidade, preco_unitario_na_vend
 INSERT INTO ITEM_VENDA (id_Venda, id_produto, quantidade, preco_unitario_na_venda) VALUES
 (2, 3, 2, 280.00), -- 2x Amortecedor (ID 3) na Venda 2 (Total 560.00)
 (2, 4, 1, 85.00);  -- 1x Vela (ID 4) na Venda 2 (Total 85.00)
+
+-- Itens da Venda 3 (Total 385.00)
+INSERT INTO ITEM_VENDA (id_Venda, id_produto, quantidade, preco_unitario_na_venda) VALUES
+(3, 4, 4, 85.00),  -- 4x Velas de Ignição (ID 4) = 340.00
+(3, 2, 1, 45.00);  -- 1x Filtro de Óleo (ID 2) = 45.00
+
+-- Itens da Venda 4 (Total 560.00)
+INSERT INTO ITEM_VENDA (id_Venda, id_produto, quantidade, preco_unitario_na_venda) VALUES
+(4, 3, 2, 280.00); -- 2x Amortecedores (ID 3) = 560.00
+
+-- Itens da Venda 5 (Total 145.50)
+INSERT INTO ITEM_VENDA (id_Venda, id_produto, quantidade, preco_unitario_na_venda) VALUES
+(5, 1, 1, 145.50); -- 1x Pastilha de Freio (ID 1) = 145.50
+
+-- Itens da Venda 6 (Total 381.00)
+INSERT INTO ITEM_VENDA (id_Venda, id_produto, quantidade, preco_unitario_na_venda) VALUES
+(6, 1, 2, 145.50), -- 2x Pastilhas de Freio (ID 1) = 291.00
+(6, 2, 2, 45.00);  -- 2x Filtros de Óleo (ID 2) = 90.00
