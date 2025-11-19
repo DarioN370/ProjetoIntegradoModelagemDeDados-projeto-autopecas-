@@ -1,11 +1,11 @@
 -------------------------------------------------------
 -- Script de Criação do Banco de Dados - Projeto Autopeças
 -- Autor: Dario Miranda Cordeiro Neto - Isabela Périco - Mateus Modena
--- Ferramenta: MySQL Workbench
+-- Ferramenta de gerenciamento: MySQL Workbench
 -------------------------------------------------------
 
 -- 1. Criando o banco de dados
--- O "IF NOT EXISTS" é uma segurança para não dar erro caso a database ja exista
+-- O "IF NOT EXISTS" adicionada essa segurança para não dar erro caso a database ja exista
 CREATE DATABASE IF NOT EXISTS autopecas_db
 DEFAULT CHARACTER SET utf8mb4
 DEFAULT COLLATE utf8mb4_0900_ai_ci; -- garante que acentos e 'ç' funcionem
@@ -18,8 +18,8 @@ USE autopecas_db;
 -----------------------------------
 CREATE TABLE CLIENTE (
     id_Cliente INT AUTO_INCREMENT PRIMARY KEY,
-    nome_cliente VARCHAR(150) NOT NULL,  -- NOT NULL = Não pode ficar em branco
-    cpf_cliente VARCHAR(11) NOT NULL UNIQUE, -- UNIQUE = Não pode repetir
+    nome_cliente VARCHAR(150) NOT NULL,  
+    cpf_cliente VARCHAR(11) NOT NULL UNIQUE, 
     endereco VARCHAR(255),
     telefone_cliente VARCHAR(15)
 );
@@ -63,7 +63,7 @@ CREATE TABLE PRODUTO (
     preco_unitario DECIMAL(10, 2) NOT NULL DEFAULT 0.00, -- 10 dígitos, 2 decimais. DEFAULT 0.00 para não ficar nulo, sempre tera um valor
     estoque_atual INT NOT NULL DEFAULT 0,
     marca_produto VARCHAR(100),
-    codigo_universal VARCHAR(50) UNIQUE -- Part number é bom ser único
+    codigo_universal VARCHAR(50) UNIQUE -- bom ser único, é como o cpf do produto
 );
 
 
@@ -72,7 +72,7 @@ CREATE TABLE PRODUTO (
 -----------------------------------
 CREATE TABLE VENDA (
     id_Venda INT AUTO_INCREMENT PRIMARY KEY,
-    data_venda DATETIME DEFAULT CURRENT_TIMESTAMP, -- data e hora atuais
+    data_venda DATETIME DEFAULT CURRENT_TIMESTAMP, -- data e hora atuais ja corrigindo fusos
     valor_total DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
     forma_pagamento VARCHAR(50),
     
@@ -126,7 +126,7 @@ CREATE TABLE PRODUTO_CATEGORIA (
 CREATE TABLE PRODUTO_FORNECEDOR (
     id_produto INT,
     id_Fornecedor INT,
-    custo_compra DECIMAL(10, 2), -- Quanto pago p/ peça
+    custo_compra DECIMAL(10, 2), -- ex: dez numeros antes da virgula e apenas 2 depois
     
     -- Chave Primária Composta
     PRIMARY KEY (id_produto, id_Fornecedor),
